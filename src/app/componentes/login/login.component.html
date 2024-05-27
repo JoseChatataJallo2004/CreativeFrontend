@@ -1,0 +1,15 @@
+<body>
+<div class="login-page">
+    <div class="form">
+      
+      <form class="login-form" (ngSubmit)="login()">
+        <h1>Sistema</h1>
+        <input type="text" placeholder="correo electronico"  [(ngModel)]="correo" name="correo" required/>
+        <input type="password" placeholder="contraseña" [(ngModel)]="clave" name="clave"  required />
+        <button type="submit"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+      </form>
+    </div>
+  </div>
+
+
+  </body>

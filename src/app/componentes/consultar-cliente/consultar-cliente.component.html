@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Consulta Clientes por DNI</h2>
+    <div class="input-container">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" placeholder="Ingresa el DNI" [(ngModel)]="dni" required="">
+    </div>
+    <div class="btn-container">
+        <button (click)="buscarCliente()">Buscar</button>
+    </div>
+    <div class="result-container" >
+        <input type="text" id="nombre" placeholder="Nombre" [(ngModel)]="nombre" readonly>
+        <input type="text" id="apellido" placeholder="Apellido" [(ngModel)]="apellido" readonly>
+        <input type="text" id="correo" placeholder="Correo" [(ngModel)]="correo" readonly>
+        <input type="text" id="celular" placeholder="Celular" [(ngModel)]="celular" readonly>
+    </div>
+</div>

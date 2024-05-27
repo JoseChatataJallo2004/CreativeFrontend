@@ -1,0 +1,129 @@
+
+   
+<body>
+    <div class="sidebar" id="sidebar">
+        <h2>
+            Admin Panel
+        </h2>
+        <a routerLink="/menu"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a routerLink="/ventas"><i class="fas fa-dollar-sign"></i> Ventas</a>
+        <a routerLink="/"><i class="fas fa-sign-out-alt"></i> Salir</a>
+    </div>
+    <div class="content" id="content">
+
+        <div class="card">
+            <div class="card-header">
+                VENTAS
+            </div>
+            <div class="card-body">
+        
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Numero Documento del cliente</label>
+                            <input placeholder="Ingrese dni del cliente" type="text" [(ngModel)]="dni" class="form-control form-control-sm" id="txtnumerodocumento" name="txtnumerodocumento">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-2">
+                            <br>
+                            <button (click)="buscarCliente()" class="btn btn-warning btn-lg" id="btnTerminar"><i class="fas fa-search"></i> Consultar</button>
+                        </div>
+                    </div>
+                   
+                    <div class="col-sm-4">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                            <input type="text" [(ngModel)]="nombre" class="form-control form-control-sm" id="txtNombre" name="txtNombre" readonly>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                            <input type="text" [(ngModel)]="apellido" class="form-control form-control-sm" id="txtApellido" name="txtApellido" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Correo</label>
+                            <input type="text" [(ngModel)]="correo" class="form-control form-control-sm" id="txtCorreo" name="txtCorreo" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Celular</label>
+                            <input type="text" [(ngModel)]="celular" class="form-control form-control-sm" id="txtCelular" name="txtCelular" readonly>
+                        </div>
+                    </div>
+                   
+                </div>
+                <hr />
+        
+                <div class="row align-items-end">
+                    <div class="col-sm-3">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Producto</label>
+                            <input type="text" [(ngModel)]="producto" class="form-control form-control-sm" id="txtproducto">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Precio</label>
+                            <input type="number"  [(ngModel)]="precio" class="form-control form-control-sm" id="txtprecio">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-2">
+                            <label for="exampleInputEmail1" class="form-label">Cantidad</label>
+                            <input type="number" [(ngModel)]="cantidad" class="form-control form-control-sm" id="txtcantidad">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-success btn-m" id="btnAgregar" (click)="agregarProducto()"><i class="fas fa-plus"></i> Agregar</button>
+
+                    </div>
+                </div>
+        <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered table-sm" id="tbProducto">
+                            <thead>
+                                <tr class="table-dark">
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Total</th>
+                                  </tr>
+                            </thead>
+        
+                            <tbody>
+                                <tr *ngFor="let prod of productos">
+                                    <td>{{ prod.producto }}</td>
+                                    <td>S/ {{ prod.precio }}</td>
+                                    <td>{{ prod.cantidad }}</td>
+                                    <td>S/ {{ prod.total }}</td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-primary btn-m" id="btnTerminar" (click)="pagar()">
+                            <i class="fas fa-check"></i> Pagar 
+                            <span *ngIf="calcularTotal()>0">
+                                S/ {{calcularTotal()}}
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+
+
+    </div>
+
+   
+</body>
+
